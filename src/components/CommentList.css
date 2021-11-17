@@ -1,0 +1,11 @@
+.CommentList {
+	margin: 1em 0;
+	padding: 0.5em;
+	color: var(--colors-shade);
+}
+
+.CommentList .title {
+	font-size: 1.5em;
+	margin-bottom: 0.5em;
+	color: var(--colors-dark);
+}

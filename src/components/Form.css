@@ -1,0 +1,34 @@
+.Form .title {
+	font-size: 2em;
+	margin-bottom: 0.5em;
+}
+
+.Form form {
+	background-color: var(--colors-shade);
+	padding: 0.5em;
+	width: max(300px, 60vw);
+}
+
+.Form .buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 0.5em;
+}
+
+.Form .buttons button {
+	padding: 0.5em;
+	border: 2px solid transparent;
+	background-color: var(--colors-accent);
+	color: var(--colors-shade);
+	border-radius: 0.5em;
+}
+
+.Form .buttons button:hover {
+	cursor: pointer;
+	border-color: var(--colors-light);
+}
+
+.Form .buttons button[type="submit"] {
+	background-color: var(--colors-main);
+}

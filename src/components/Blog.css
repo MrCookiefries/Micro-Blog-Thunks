@@ -1,0 +1,59 @@
+.Blog {
+	box-shadow: 0 0 1em var(--colors-shade);
+	width: max(300px, 60vw);
+}
+
+.Blog article {
+	padding: 0.5em;
+}
+
+.Blog .title {
+	font-size: 1.75em;
+	color: var(--colors-main);
+}
+
+.Blog .description {
+	font-size: 1.25em;
+	color: var(--colors-tint);
+	margin: 0.25em 0 0.5em;
+}
+
+.Blog .body {
+	line-height: 1.5em;
+}
+
+.Blog .buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	margin: 0 0 1em;
+}
+
+.Blog .buttons button {
+	padding: 0.5em;
+	border: 2px solid transparent;
+	background-color: var(--colors-light);
+	color: var(--colors-shade);
+	border-radius: 0.5em;
+}
+
+.Blog .buttons button:hover {
+	cursor: pointer;
+	border-color: var(--colors-shade);
+}
+
+.Blog .buttons .edit {
+	background-color: var(--colors-main);
+	color: var(--colors-light);
+}
+
+.Blog .comments {
+	background-color: var(--colors-light);
+}
+
+.Blog .comments .Form .title {
+	color: var(--colors-dark) !important;
+	font-size: 1.5em;
+	padding: 0.25em;
+}

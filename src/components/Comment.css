@@ -1,0 +1,13 @@
+.Comment button {
+	padding: 0.25em;
+	border: 2px solid transparent;
+	background-color: var(--colors-tint);
+	color: var(--colors-shade);
+	border-radius: 0.5em;
+	margin-right: 0.5em;
+}
+
+.Comment button:hover {
+	cursor: pointer;
+	border-color: var(--colors-shade);
+}

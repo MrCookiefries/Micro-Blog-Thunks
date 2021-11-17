@@ -1,0 +1,18 @@
+.FormField {
+	font-size: 1.25em;
+}
+
+.FormField input,
+.FormField textarea {
+	display: block;
+	padding: 0.25em;
+	margin: 0.25em 0 0.5em;
+	color: var(--colors-main);
+	width: 100%;
+}
+
+.FormField textarea {
+	resize: vertical;
+	min-width: 100%;
+	min-height: 20vh;
+}

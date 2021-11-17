@@ -1,0 +1,25 @@
+.BlogList .message {
+	font-size: 1.5em;
+	padding: 0.5em;
+}
+
+.BlogList ul {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: 2em;
+}
+
+.BlogList li {
+	background-color: var(--colors-tint);
+	padding: 0.5em;
+}
+
+.BlogList li a {
+	color: var(--colors-shade);
+	font-size: 1.25em;
+}
+
+.BlogList li small {
+	display: block;
+}

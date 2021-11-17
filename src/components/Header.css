@@ -1,0 +1,14 @@
+.Header {
+	background-color: var(--colors-light);
+	color: var(--colors-shade);
+	padding: 0.5em;
+}
+
+.Header .title {
+	color: var(--colors-main);
+	font-size: 3em;
+}
+
+.Header .subtitle {
+	font-size: 1.5em;
+}
