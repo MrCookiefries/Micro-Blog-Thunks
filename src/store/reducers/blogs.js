@@ -8,6 +8,8 @@ const blogs = (state = {}, action) => {
 			return { ...state, ...payload };
 		case blogsTypes.update:
 			return { ...state, ...payload };
+		case blogsTypes.load:
+			return { ...state, ...payload };
 		case blogsTypes.delete:
 			stateCopy = { ...state };
 			delete stateCopy[payload];

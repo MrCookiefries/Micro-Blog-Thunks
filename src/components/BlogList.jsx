@@ -1,9 +1,16 @@
-import { shallowEqual, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import blogsActions from "../store/actions/blogsActions";
 import "./BlogList.css";
 
 const BlogList = () => {
 	const blogs = useSelector((store) => store.blogs, shallowEqual);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(blogsActions.fetchAll());
+	}, [dispatch]);
 
 	return (
 		<section className="BlogList">

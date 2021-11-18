@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
 import "./Blog.css";
@@ -15,6 +15,10 @@ const Blog = () => {
 
 	const { id } = useParams();
 	const blog = useSelector((store) => store.blogs[id], shallowEqual);
+
+	useEffect(() => {
+		dispatch(blogsActions.fetchOne(id));
+	}, [dispatch, id]);
 
 	if (!blog) return <Navigate to="/" />;
 
