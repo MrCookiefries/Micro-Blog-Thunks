@@ -1,7 +1,7 @@
 import "./Form.css";
 import Form from "./Form";
-import { useContext } from "react";
-import { BlogsContext } from "../App";
+import { useDispatch } from "react-redux";
+import blogsActions from "../store/actions/blogsActions";
 
 const EditBlogForm = ({ title, description, body, id, editBlog }) => {
 	const initialState = {
@@ -10,13 +10,10 @@ const EditBlogForm = ({ title, description, body, id, editBlog }) => {
 		body,
 	};
 
-	const { setBlogs } = useContext(BlogsContext);
+	const dispatch = useDispatch();
 
 	const updateBlog = (blog) => {
-		setBlogs((oldBlogs) => [
-			...oldBlogs.filter((b) => b.id !== id),
-			{ ...blog, id },
-		]);
+		dispatch(blogsActions.update({ [id]: blog }));
 		editBlog();
 	};
 

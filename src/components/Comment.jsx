@@ -1,20 +1,12 @@
-import { useContext } from "react";
-import { BlogsContext } from "../App";
+import { useDispatch } from "react-redux";
+import blogsActions from "../store/actions/blogsActions";
 import "./Comment.css";
 
 const Comment = ({ text, id, blogId }) => {
-	const { blogs, setBlogs } = useContext(BlogsContext);
-	const blog = blogs.find((b) => b.id === blogId);
+	const dispatch = useDispatch();
 
 	const deleteComment = () =>
-		setBlogs((oldBlogs) => [
-			...oldBlogs.filter((b) => b.id !== blogId),
-			{
-				...blog,
-				id: blogId,
-				comments: [...blog.comments.filter((c) => c.id !== id)],
-			},
-		]);
+		dispatch(blogsActions.comments.delete(blogId, id));
 
 	return (
 		<li className="Comment">

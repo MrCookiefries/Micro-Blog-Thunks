@@ -1,14 +1,14 @@
 import Comment from "./Comment";
 import "./CommentList.css";
 
-const CommentList = ({ comments = [], blogId }) => {
+const CommentList = ({ comments = {}, blogId }) => {
 	return (
 		<div className="CommentList">
 			<h3 className="title">Comments</h3>
-			{comments.length ? (
+			{Object.keys(comments).length ? (
 				<ul>
-					{comments.map((c) => (
-						<Comment key={c.id} {...c} blogId={blogId} />
+					{Object.entries(comments).map(([id, c]) => (
+						<Comment key={id} id={id} {...c} blogId={blogId} />
 					))}
 				</ul>
 			) : (

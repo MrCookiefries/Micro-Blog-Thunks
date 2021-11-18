@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { BlogsContext } from "../App";
 import Form from "./Form";
 import "./Form.css";
 import { v4 as uuidV4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import blogsActions from "../store/actions/blogsActions";
 
 const NewBlogForm = () => {
 	const initialState = {
@@ -12,14 +12,11 @@ const NewBlogForm = () => {
 		body: "",
 	};
 
-	const { setBlogs } = useContext(BlogsContext);
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const createBlog = (blog) => {
-		setBlogs((oldBlogs) => [
-			...oldBlogs,
-			{ ...blog, id: uuidV4(), comments: [] },
-		]);
+		dispatch(blogsActions.add({ [uuidV4()]: blog }));
 		navigate("/");
 	};
 

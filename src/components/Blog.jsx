@@ -1,25 +1,26 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
-import { BlogsContext } from "../App";
 import "./Blog.css";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import EditBlogForm from "./EditBlogForm";
+import blogsActions from "../store/actions/blogsActions";
 
 const Blog = () => {
 	const [showEdit, setShowEdit] = useState(false);
+	const dispatch = useDispatch();
 
 	const editBlog = () => setShowEdit(!showEdit);
 
 	const { id } = useParams();
-	const { blogs, setBlogs } = useContext(BlogsContext);
-	const blog = blogs.find((b) => b.id === id);
+	const blog = useSelector((store) => store.blogs[id], shallowEqual);
 
 	if (!blog) return <Navigate to="/" />;
 
 	const { title, description, body, comments } = blog;
 
-	const deleteBlog = () => setBlogs(blogs.filter((b) => b.id !== id));
+	const deleteBlog = () => dispatch(blogsActions.delete(id));
 
 	return showEdit ? (
 		<EditBlogForm {...blog} id={id} editBlog={editBlog} />
@@ -40,7 +41,7 @@ const Blog = () => {
 			</article>
 			<div className="comments">
 				<CommentList comments={comments} blogId={id} />
-				<CommentForm setBlogs={setBlogs} blog={blog} id={id} />
+				<CommentForm blogId={id} />
 			</div>
 		</section>
 	);

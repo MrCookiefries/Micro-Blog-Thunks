@@ -1,18 +1,17 @@
-import { useContext } from "react";
+import { shallowEqual, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { BlogsContext } from "../App";
 import "./BlogList.css";
 
 const BlogList = () => {
-	const { blogs } = useContext(BlogsContext);
+	const blogs = useSelector((store) => store.blogs, shallowEqual);
 
 	return (
 		<section className="BlogList">
-			{blogs.length ? (
+			{Object.keys(blogs).length ? (
 				<ul>
-					{blogs.map((b) => (
-						<li key={b.id}>
-							<Link to={b.id}>{b.title}</Link>
+					{Object.entries(blogs).map(([id, b]) => (
+						<li key={id}>
+							<Link to={id}>{b.title}</Link>
 							<small>{b.description}</small>
 						</li>
 					))}

@@ -1,21 +1,18 @@
 import "./Form.css";
 import { v4 as uuidV4 } from "uuid";
 import Form from "./Form";
+import { useDispatch } from "react-redux";
+import blogsActions from "../store/actions/blogsActions";
 
-const CommentForm = ({ setBlogs, blog, id }) => {
+const CommentForm = ({ blogId }) => {
 	const initialState = {
 		text: "",
 	};
 
+	const dispatch = useDispatch();
+
 	const createComment = (comment) =>
-		setBlogs((oldBlogs) => [
-			...oldBlogs.filter((b) => b.id !== id),
-			{
-				...blog,
-				id,
-				comments: [...blog.comments, { ...comment, id: uuidV4() }],
-			},
-		]);
+		dispatch(blogsActions.comments.add(blogId, { [uuidV4()]: comment }));
 
 	return (
 		<section className="Form">
