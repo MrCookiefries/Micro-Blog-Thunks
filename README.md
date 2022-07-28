@@ -4,7 +4,7 @@ A simple web app for blogs. No user accounts required, so it can be tried out ri
 
 [Visit the page][live]
 
-<img scr="./public/preview.png" alt="A blog post a few comments" />
+<img src="./public/preview.png" alt="A blog post a few comments" />
 
 ## Features
 
